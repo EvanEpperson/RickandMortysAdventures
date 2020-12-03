@@ -15,9 +15,6 @@ $(() => {
         data: {
         }
 
-
-
-
       }).then(
         (characters) => {
           console.log(characters.userInput);
