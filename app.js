@@ -10,69 +10,79 @@ $(() => {
 ////////////////////////////////////////////////////////////////////////////////////
   $.ajax({
 
-        url:`https://rickandmortyapi.com/api/character/${$(event.target).val()}`,
+        url:`https://rickandmortyapi.com/api/character/`,
+        // ${$(event.target).val()}
         type: "GET",
         data: {
+          $limit: 10,
         }
 
       }).then(
         (characters) => {
-          console.log(characters.userInput);
+          for(let i = 0; i < 10; i++){
+          console.log(characters.results[0].name);
+          const $characters = $('#characters').text(characters.result)
+          $('body').append($characters)
+
+            // console.log(character);
+          }
+
 
       },(error) => {
         console.log(`${error.statusText.toUpperCase()}:bad request`);
 
       })
+    })
 ////////////////////////////////////////////////////////////////////////////////////
 // second ajax for locations
 ////////////////////////////////////////////////////////////////////////////////////
-      $.ajax({
-
-            url:`https://rickandmortyapi.com/api/location`,
-            type: "GET",
-            data: {
-              $limit: 10,
-
-            }
-
-          }).then(
-            (location) => {
-              console.log(location);
-
-          },(error) => {
-            console.log(`${error.statusText.toUpperCase()}:bad request`);
-
-          })
-////////////////////////////////////////////////////////////////////////////////////
-// third ajax for episodes
-////////////////////////////////////////////////////////////////////////////////////
-          $.ajax({
-
-                url:`https://rickandmortyapi.com/api/episode`,
-                type: "GET",
-                data: {
-
-                }
-
-              }).then(
-                (episodes) => {
-                  console.log(episodes);
-
-              },(error) => {
-                console.log(`${error.statusText.toUpperCase()}:bad request`);
-
-              })
-
-
-
-
-
-
-
-
-
-
-})
+//       $.ajax({
+//
+//             url:`https://rickandmortyapi.com/api/location`,
+//             type: "GET",
+//             data: {
+//               $maxPerPageView: 10,
+//
+//             }
+//
+//           }).then(
+//             (location) => {
+//               console.log(location);
+//
+//           },(error) => {
+//             console.log(`${error.statusText.toUpperCase()}:bad request`);
+//
+//           })
+// ////////////////////////////////////////////////////////////////////////////////////
+// // third ajax for episodes
+// ////////////////////////////////////////////////////////////////////////////////////
+//           $.ajax({
+//
+//                 url:`https://rickandmortyapi.com/api/episode`,
+//                 type: "GET",
+//                 data: {
+//
+//                 }
+//
+//               }).then(
+//                 (episodes) => {
+//                   console.log(episodes);
+//
+//               },(error) => {
+//                 console.log(`${error.statusText.toUpperCase()}:bad request`);
+//
+//               })
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// })
 
 
 
