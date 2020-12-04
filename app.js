@@ -5,34 +5,52 @@ $(() => {
     event.preventDefault()
     const userInput = $('input').val()
   })
+  ////////////////////////////////////////////////////////////////////////////////////
+//Variables to be called later time but be global at the same time
+  ////////////////////////////////////////////////////////////////////////////////////
+  const $ricksanchez = $('.rickSanchez')
+  const $characters = $('#nameRickSanchez')
+  const $charactersLi = $("#testingLi")
+  const $charactersLi2 = $('#testingLi2')
+  const $characters2 = $('#testing2')
+  const $imagesTest = $('#images')
+  const $locationdiv = $('.locationDiv')
+  const $location = $('#location')
 ////////////////////////////////////////////////////////////////////////////////////
 // first ajax for characters
 ////////////////////////////////////////////////////////////////////////////////////
-  $.ajax({
+$.ajax({
 
-        url:`https://rickandmortyapi.com/api/character/`,
-        // ${$(event.target).val()}
-        type: "GET",
-        data: {
-          $limit: 10,
-        }
+      url:`https://rickandmortyapi.com/api/character/`,
+      // ${$(event.target).val()}
+      type: "GET",
+      data: {
+        $limit: 2,
+      }
 
-      }).then(
-        (characters) => {
-          for(let i = 0; i < 10; i++){
-          console.log(characters.results[0].name);
-          const $characters = $('#characters').text(characters.result)
-          $('body').append($characters)
+    }).then(
+      (characters) => {
+        // for(let i = 0; i < ; i++){
+          $characters.append($characters).text(characters.results[0].name)
+          $characters2.append($charactersLi2).text(characters.results[0].gender)
+          $locationdiv.append($location).text(characters.results[0].location.name)
+          const $species = $('<div>').text(characters.results[0].species)
+          $ricksanchez.append($species)
+          const $status = $('<div>').text(characters.results[0].status)
+          $ricksanchez.append($status)
+          $imagesTest.append(`<img src = ${characters.results[0].image} alt='image'/>`)
 
-            // console.log(character);
-          }
+
+          console.log(characters);
+        // }
 
 
-      },(error) => {
-        console.log(`${error.statusText.toUpperCase()}:bad request`);
+    },(error) => {
+      console.log(`${error.statusText.toUpperCase()}:bad request`);
 
-      })
     })
+  })
+
 ////////////////////////////////////////////////////////////////////////////////////
 // second ajax for locations
 ////////////////////////////////////////////////////////////////////////////////////
@@ -112,3 +130,37 @@ $(() => {
 //
 //   }
 // )
+
+//////////////////////////////////////////////////////////////////////////////////
+//boneyard for old code i dont want to mess up just incase
+//////////////////////////////////////////////////////////////////////////////////
+
+// $.ajax({
+//
+//       url:`https://rickandmortyapi.com/api/character/`,
+//       // ${$(event.target).val()}
+//       type: "GET",
+//       data: {
+//         $limit: 10,
+//       }
+//
+//     }).then(
+//       (characters) => {
+//         let characterTest = []
+//         characterTest.push(characters.results[0].name)
+//         characterTest.push(characters.results[1].name)
+//
+//         for(let i = 0; i < 1; i++){
+//           $characters.append(characterTest)
+//         // console.log(characters.results[0].name);
+//
+//
+//           console.log(characters);
+//         }
+//
+//
+//     },(error) => {
+//       console.log(`${error.statusText.toUpperCase()}:bad request`);
+//
+//     })
+//   })
