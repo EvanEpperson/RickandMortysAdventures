@@ -1,71 +1,143 @@
 $(() => {
 
+const formTest =
+  $('form').on('submit', (event) => {
+    event.preventDefault()
+    const userInput = $('input').val()
+    console.log(userInput);
 
-  // $('#firstForm').on('click', (event) => {
-  //   event.preventDefault()
-  //   const userInput = $('input').val()
-  // })
+      const $ricksanchez = $('.rickSanchez')
+
+    $.ajax({
+
+          url:`https://rickandmortyapi.com/api/character/?name=${$(userInput).val()}&status=alive`,
+          // ${$(event.target).val()}
+          type: "GET",
+          data: {
+            $limit: userInput,
+          }
+
+        }).then(
+          (characters) => {
+
+            for(let i = 0; i < characters.results.length; i++){
+              ////////////////////////////////////////////////////////////////////////////////////
+              //names for everyone displaying
+              ///////////////////////////////////////////////////////////////////////////////////
+              const $characters = $('<div>').text("Name: " + characters.results[i].name)
+              $ricksanchez.append($characters)
+              $characters.attr('id', 'character')
+              ///////////////////////////////////////////////////////////////////////////////////
+              //genders for everyone displaying
+              ///////////////////////////////////////////////////////////////////////////////////
+              const $gender = $('<div>').text("Gender: " + characters.results[i].gender)
+              $ricksanchez.append($gender)
+              $gender.attr('id', 'gender')
+              ///////////////////////////////////////////////////////////////////////////////////
+              //locations for everyone displaying
+              ///////////////////////////////////////////////////////////////////////////////////
+              const $location = $('<div>').text("Location: " + characters.results[i].location.name)
+              $ricksanchez.append($location)
+              $location.attr('id', 'locations')
+              ///////////////////////////////////////////////////////////////////////////////////
+              //species for everyone displaying
+              ///////////////////////////////////////////////////////////////////////////////////
+              const $species = $('<div>').text("Species: " + characters.results[i].species)
+              $ricksanchez.append($species)
+              $species.attr('id', 'species')
+              ///////////////////////////////////////////////////////////////////////////////////
+              //status for everyone displaying
+              ///////////////////////////////////////////////////////////////////////////////////
+              const $status = $('<div>').text("Status: " + characters.results[i].status)
+              $ricksanchez.append($status)
+              $status.attr('id', 'status')
+              ///////////////////////////////////////////////////////////////////////////////////
+              //imagines for everyone displaying
+              ///////////////////////////////////////////////////////////////////////////////////
+              const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
+              $ricksanchez.append($imagesTest)
+              $imagesTest.attr('id', 'images')
+
+
+
+              // console.log(characters);
+            }
+
+
+        },(error) => {
+          console.log(`${error.statusText.toUpperCase()}:bad request`);
+
+        })
+      })
+  })
   ////////////////////////////////////////////////////////////////////////////////////
 //Variables to be called later time but be global at the same time
   ////////////////////////////////////////////////////////////////////////////////////
-  const $ricksanchez = $('.rickSanchez')
-  // const $characters = $('#nameRickSanchez')
-  const $charactersLi = $("#testingLi")
-  const $charactersLi2 = $('#testingLi2')
-  // const $characters2 = $('#testing2')
-  // const $locationdiv = $('.locationDiv')
-  const $location = $('#location')
+  // const $ricksanchez = $('.rickSanchez')
 ////////////////////////////////////////////////////////////////////////////////////
 // first ajax for characters
 ////////////////////////////////////////////////////////////////////////////////////
-$.ajax({
-
-      url:`https://rickandmortyapi.com/api/character/`,
-      // ${$(event.target).val()}
-      type: "GET",
-      data: {
-        $limit: 2,
-      }
-
-    }).then(
-      (characters) => {
-
-        for(let i = 0; i < characters.results.length; i++){
-          const $characters = $('<div>').text("Name: " + characters.results[i].name)
-          $ricksanchez.append($characters)
-          $characters.attr('id', 'character')
-
-          const $gender = $('<div>').text("Gender: " + characters.results[i].gender)
-          $ricksanchez.append($gender)
-          $gender.attr('id', 'gender')
-
-          const $location = $('<div>').text("location: " + characters.results[i].location.name)
-          $ricksanchez.append($location)
-          $location.attr('id', 'locations')
-
-          const $species = $('<div>').text("Species: " + characters.results[i].species)
-          $ricksanchez.append($species)
-          $species.attr('id', 'species')
-
-          const $status = $('<div>').text("Status: " + characters.results[i].status)
-          $ricksanchez.append($status)
-          $status.attr('id', 'status')
-
-          const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
-          $ricksanchez.append($imagesTest)
-          $imagesTest.attr('id', 'images')
-
-
-
-          // console.log(characters);
-        }
-
-
-    },(error) => {
-      console.log(`${error.statusText.toUpperCase()}:bad request`);
-
-    })
-  })
+// $.ajax({
+//
+//       url:`https://rickandmortyapi.com/api/character/?page=${$(event.target).val()}`,
+//       // ${$(event.target).val()}
+//       type: "GET",
+//       data: {
+//         $limit: 2,
+//       }
+//
+//     }).then(
+//       (characters) => {
+//
+//         for(let i = 0; i < characters.results.length; i++){
+//           ////////////////////////////////////////////////////////////////////////////////////
+//           //names for everyone displaying
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           const $characters = $('<div>').text("Name: " + characters.results[i].name)
+//           $ricksanchez.append($characters)
+//           $characters.attr('id', 'character')
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           //genders for everyone displaying
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           const $gender = $('<div>').text("Gender: " + characters.results[i].gender)
+//           $ricksanchez.append($gender)
+//           $gender.attr('id', 'gender')
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           //locations for everyone displaying
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           const $location = $('<div>').text("Location: " + characters.results[i].location.name)
+//           $ricksanchez.append($location)
+//           $location.attr('id', 'locations')
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           //species for everyone displaying
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           const $species = $('<div>').text("Species: " + characters.results[i].species)
+//           $ricksanchez.append($species)
+//           $species.attr('id', 'species')
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           //status for everyone displaying
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           const $status = $('<div>').text("Status: " + characters.results[i].status)
+//           $ricksanchez.append($status)
+//           $status.attr('id', 'status')
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           //imagines for everyone displaying
+//           ///////////////////////////////////////////////////////////////////////////////////
+//           const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
+//           $ricksanchez.append($imagesTest)
+//           $imagesTest.attr('id', 'images')
+//
+//
+//
+//           // console.log(characters);
+//         }
+//
+//
+//     },(error) => {
+//       console.log(`${error.statusText.toUpperCase()}:bad request`);
+//
+//     })
+//   })
 
 ////////////////////////////////////////////////////////////////////////////////////
 // second ajax for locations
