@@ -1,20 +1,19 @@
 $(() => {
 
 
-  $('#firstForm').on('click', (event) => {
-    event.preventDefault()
-    const userInput = $('input').val()
-  })
+  // $('#firstForm').on('click', (event) => {
+  //   event.preventDefault()
+  //   const userInput = $('input').val()
+  // })
   ////////////////////////////////////////////////////////////////////////////////////
 //Variables to be called later time but be global at the same time
   ////////////////////////////////////////////////////////////////////////////////////
   const $ricksanchez = $('.rickSanchez')
-  const $characters = $('#nameRickSanchez')
+  // const $characters = $('#nameRickSanchez')
   const $charactersLi = $("#testingLi")
   const $charactersLi2 = $('#testingLi2')
-  const $characters2 = $('#testing2')
-  const $imagesTest = $('#images')
-  const $locationdiv = $('.locationDiv')
+  // const $characters2 = $('#testing2')
+  // const $locationdiv = $('.locationDiv')
   const $location = $('#location')
 ////////////////////////////////////////////////////////////////////////////////////
 // first ajax for characters
@@ -30,19 +29,36 @@ $.ajax({
 
     }).then(
       (characters) => {
-        // for(let i = 0; i < ; i++){
-          $characters.append($characters).text(characters.results[0].name)
-          $characters2.append($charactersLi2).text(characters.results[0].gender)
-          $locationdiv.append($location).text(characters.results[0].location.name)
-          const $species = $('<div>').text(characters.results[0].species)
+
+        for(let i = 0; i < characters.results.length; i++){
+          const $characters = $('<div>').text("Name: " + characters.results[i].name)
+          $ricksanchez.append($characters)
+          $characters.attr('id', 'character')
+
+          const $gender = $('<div>').text("Gender: " + characters.results[i].gender)
+          $ricksanchez.append($gender)
+          $gender.attr('id', 'gender')
+
+          const $location = $('<div>').text("location: " + characters.results[i].location.name)
+          $ricksanchez.append($location)
+          $location.attr('id', 'locations')
+
+          const $species = $('<div>').text("Species: " + characters.results[i].species)
           $ricksanchez.append($species)
-          const $status = $('<div>').text(characters.results[0].status)
+          $species.attr('id', 'species')
+
+          const $status = $('<div>').text("Status: " + characters.results[i].status)
           $ricksanchez.append($status)
-          $imagesTest.append(`<img src = ${characters.results[0].image} alt='image'/>`)
+          $status.attr('id', 'status')
+
+          const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
+          $ricksanchez.append($imagesTest)
+          $imagesTest.attr('id', 'images')
 
 
-          console.log(characters);
-        // }
+
+          // console.log(characters);
+        }
 
 
     },(error) => {
@@ -130,7 +146,7 @@ $.ajax({
 //
 //   }
 // )
-
+// })
 //////////////////////////////////////////////////////////////////////////////////
 //boneyard for old code i dont want to mess up just incase
 //////////////////////////////////////////////////////////////////////////////////
@@ -164,3 +180,46 @@ $.ajax({
 //
 //     })
 //   })
+
+
+
+
+//array into a string but it pulls too much info
+// var string = JSON.stringify(keyTest)//making the array a string
+// console.log(string);
+// $ricksanchez.append(string)
+
+
+// makes one card done except css
+
+// $characters.append($characters).text(characters.results[0].name)
+// $characters2.append($charactersLi2).text(characters.results[0].gender)
+// $locationdiv.append($location).text(characters.results[0].location.name)
+// const $species = $('<div>').text(characters.results[0].species)
+// $ricksanchez.append($species)
+// const $status = $('<div>').text(characters.results[0].status)
+// $ricksanchez.append($status)
+// const $imagesTest = $(`<img src = ${characters.results[0].image} alt='image'/>`)
+// $ricksanchez.append($imagesTest)
+
+
+
+        // let keys = []
+        // keys = Object.keys(characters.results[i])
+        // console.log(characters.results[0][keys[1]]);
+        // $ricksanchez.append(characters.results[0][keys[1]])
+        // // keys.forEach(element => console.log(element));
+
+
+
+// works but will only give human and status
+// for(let i = 0; i < characters.results.length; i++){
+  // $characters.append($characters).text(characters.results[i].name)
+  // $characters2.append($charactersLi2).text(characters.results[i].gender)
+  // $locationdiv.append($location).text(characters.results[i].location.name)
+  // const $species = $('<div>').text(characters.results[i].species)
+  // $ricksanchez.append($species)
+  // const $status = $('<div>').text(characters.results[i].status)
+  // $ricksanchez.append($status)
+  // const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
+  // $ricksanchez.append($imagesTest)

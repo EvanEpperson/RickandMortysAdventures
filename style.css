@@ -1,7 +1,7 @@
 .rickSanchez{
-  width: 300px;
-  height: 400px;
+  display: inline-inline-table;
   border: 1px solid black;
+
 }
 #testingNames{
   margin: 0px;
@@ -11,6 +11,6 @@
   padding: 0px;
 }
 img{
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
