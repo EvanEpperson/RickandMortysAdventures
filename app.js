@@ -4,7 +4,7 @@ const formTest =
   $('form').on('submit', (event) => {
     event.preventDefault()
     const userInput = $('input').val()
-    console.log(userInput);
+    console.log(userInput)
     $('.rickSanchez').empty()
 
       const $ricksanchez = $('.rickSanchez')
@@ -25,46 +25,48 @@ const formTest =
             for(let i = 0; i < characters.results.length; i++){
               const $idNames = 'test'+[i]
               // will let the divs change with everyone going in order so now i have to make 20 divs 0-19 and go in order so that they can go in a card formation everytime 
+              const $testDiv = $('<div>').attr('id', `${$idNames}`)
+              $ricksanchez.append($testDiv)
               ////////////////////////////////////////////////////////////////////////////////////
               //names for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
-              const $characters = $('<div>').text("Name: " + characters.results[i].name)
-              $ricksanchez.append($characters)
+              const $characters = $('<p>').text("Name: " + characters.results[i].name)
+              $testDiv.append($characters)
               $characters.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //genders for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
-              const $gender = $('<div>').text("Gender: " + characters.results[i].gender)
-              $ricksanchez.append($gender)
+              const $gender = $('<p>').text("Gender: " + characters.results[i].gender)
+              $testDiv.append($gender)
               $gender.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //locations for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
-              const $location = $('<div>').text("Location: " + characters.results[i].location.name)
-              $ricksanchez.append($location)
+              const $location = $('<p>').text("Location: " + characters.results[i].location.name)
+              $testDiv.append($location)
               $location.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //species for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
-              const $species = $('<div>').text("Species: " + characters.results[i].species)
-              $ricksanchez.append($species)
+              const $species = $('<p>').text("Species: " + characters.results[i].species)
+              $testDiv.append($species)
               $species.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //status for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
-              const $status = $('<div>').text("Status: " + characters.results[i].status)
-              $ricksanchez.append($status)
+              const $status = $('<p>').text("Status: " + characters.results[i].status)
+              $testDiv.append($status)
               $status.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //making a clickable  link that leads to all of their info have to make it relevant now though ///////////////////////////////////////////////////////////////////////////////////
               const $type = $(`<a href="${characters.results[i].url}"target="_blank"></a>`).text(characters.results[i].url)
-              $ricksanchez.append($type)
+              $testDiv.append($type)
               $status.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //imagines for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
-              $ricksanchez.append($imagesTest)
+              $testDiv.append($imagesTest)
               $imagesTest.attr('id', `${$idNames}`)
 
 

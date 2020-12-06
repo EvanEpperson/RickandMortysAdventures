@@ -6,6 +6,11 @@ body{
   border: 1px solid black;
 
 } */
+
+#test0 p{
+  margin: 0px;
+
+}
 #test0 img{
   border: 1px solid black;
   border-radius: 50%;
