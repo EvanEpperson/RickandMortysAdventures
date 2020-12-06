@@ -6,26 +6,75 @@ body{
   border: 1px solid black;
 
 } */
-#test0{
+
+.rickSanchez{
+  display: inline-flex;
+  flex-direction: row;
+}
+
+
+#test0 {
   background: pink;
+  width: 600px;
+  height: auto;
+  margin: 10px;
+
 }
 
 #test0 p{
   margin: 0px;
+  display: none;
 
 }
 #test0 img{
+  display: block;
   border: 1px solid black;
   border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+#test0img{
+  display: block;
 }
 
-#testingNames{
-  margin: 0px;
+#test1 {
+  display: inline-block;
+  background: pink;
+  width: 600px;
+  height: auto;
+  margin: 10px;
 }
-#testing2{
+
+#test1 p{
   margin: 0px;
-  padding: 0px;
+
 }
+#test1 img{
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+#test2 {
+  display: inline-block;
+  background: pink;
+  width: 600px;
+  height: auto;
+  margin: 10px;
+}
+
+#test2 p{
+  margin: 0px;
+
+}
+#test2 img{
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+
 /* img{
   display: flex;
   flex-direction: row;
