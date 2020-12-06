@@ -1,11 +1,16 @@
 body{
   /* background-image: url(https://wallpaperaccess.com/full/637645.jpg); */
 }
-.rickSanchez{
+/* .rickSanchez{
   display: inline-inline-table;
   border: 1px solid black;
 
+} */
+#test0 img{
+  border: 1px solid black;
+  border-radius: 50%;
 }
+
 #testingNames{
   margin: 0px;
 }
@@ -13,9 +18,9 @@ body{
   margin: 0px;
   padding: 0px;
 }
-img{
+/* img{
   display: flex;
   flex-direction: row;
   width: 300px;
   height: 300px;
-}
+} */

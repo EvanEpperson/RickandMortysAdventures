@@ -5,13 +5,13 @@ const formTest =
     event.preventDefault()
     const userInput = $('input').val()
     console.log(userInput);
-    $(userInput).empty()
+    $('.rickSanchez').empty()
 
       const $ricksanchez = $('.rickSanchez')
 
     $.ajax({
 
-          url:`https://rickandmortyapi.com/api/character/?name=`+userInput+`&status=alive`,
+          url:`https://rickandmortyapi.com/api/character/?page=`+userInput+``,
           // wow user input worked that easily let me try names now 
           //got hint from this link https://stackoverflow.com/questions/14048939/how-to-add-a-variable-to-url-of-ajax-url/14048981
           type: "GET",
@@ -23,42 +23,44 @@ const formTest =
           (characters) => {
 
             for(let i = 0; i < characters.results.length; i++){
+              const $idNames = 'test'+[i]
+              // will let the divs change with everyone going in order so now i have to make 20 divs 0-19 and go in order so that they can go in a card formation everytime 
               ////////////////////////////////////////////////////////////////////////////////////
               //names for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $characters = $('<div>').text("Name: " + characters.results[i].name)
               $ricksanchez.append($characters)
-              $characters.attr('id', 'character')
+              $characters.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //genders for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $gender = $('<div>').text("Gender: " + characters.results[i].gender)
               $ricksanchez.append($gender)
-              $gender.attr('id', 'gender')
+              $gender.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //locations for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $location = $('<div>').text("Location: " + characters.results[i].location.name)
               $ricksanchez.append($location)
-              $location.attr('id', 'locations')
+              $location.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //species for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $species = $('<div>').text("Species: " + characters.results[i].species)
               $ricksanchez.append($species)
-              $species.attr('id', 'species')
+              $species.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //status for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $status = $('<div>').text("Status: " + characters.results[i].status)
               $ricksanchez.append($status)
-              $status.attr('id', 'status')
+              $status.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //imagines for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
               $ricksanchez.append($imagesTest)
-              $imagesTest.attr('id', 'images')
+              $imagesTest.attr('id', `${$idNames}`)
 
 
 
@@ -67,6 +69,8 @@ const formTest =
 
 
         },(error) => {
+          alert('your not that good at spelling huh please try again ')
+          // when you get an error because of a misspelled name it will populate an alert instead of nothing 
           console.log(`${error.statusText.toUpperCase()}:bad request`);
 
         })
