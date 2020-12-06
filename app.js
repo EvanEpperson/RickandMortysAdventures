@@ -11,7 +11,7 @@ const formTest =
 
     $.ajax({
 
-          url:`https://rickandmortyapi.com/api/character/?page=`+userInput+``,
+          url:`https://rickandmortyapi.com/api/character/?name=`+userInput+``,
           // wow user input worked that easily let me try names now 
           //got hint from this link https://stackoverflow.com/questions/14048939/how-to-add-a-variable-to-url-of-ajax-url/14048981
           type: "GET",
@@ -56,6 +56,11 @@ const formTest =
               $ricksanchez.append($status)
               $status.attr('id', `${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
+              //making a clickable  link that leads to all of their info have to make it relevant now though ///////////////////////////////////////////////////////////////////////////////////
+              const $type = $(`<a href="${characters.results[i].url}"target="_blank"></a>`).text(characters.results[i].url)
+              $ricksanchez.append($type)
+              $status.attr('id', `${$idNames}`)
+              ///////////////////////////////////////////////////////////////////////////////////
               //imagines for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
@@ -64,7 +69,7 @@ const formTest =
 
 
 
-              // console.log(characters);
+              console.log(characters);
             }
 
 
