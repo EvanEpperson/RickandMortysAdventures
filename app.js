@@ -1,89 +1,118 @@
 $(() => {
 
+////////////////////////////////////////////////////////////////////////////////////
+//on click event for searching names in the url
+////////////////////////////////////////////////////////////////////////////////////
 const formTest =
   $('form').on('submit', (event) => {
     event.preventDefault()
     const userInput = $('input').val()
     console.log(userInput)
     $('.rickSanchez').empty()
-
+////////////////////////////////////////////////////////////////////////////////////
+//main div where everything is inside of
+////////////////////////////////////////////////////////////////////////////////////
       const $ricksanchez = $('.rickSanchez')
 
     $.ajax({
-
+          ////////////////////////////////////////////////////////////////////////////////////
+          //url for api
+          ////////////////////////////////////////////////////////////////////////////////////
           url:`https://rickandmortyapi.com/api/character/?name=`+userInput+``,
-          // wow user input worked that easily let me try names now 
+          // wow user input worked that easily let me try names now
           //got hint from this link https://stackoverflow.com/questions/14048939/how-to-add-a-variable-to-url-of-ajax-url/14048981
           type: "GET",
-          data: {
-            $limit: userInput, 
-          }
+
 
         }).then(
-          (characters) => {
+          (characters) => {// my data
 
             for(let i = 0; i < characters.results.length; i++){
               const $idNames = 'test'+[i]
-              // will let the divs change with everyone going in order so now i have to make 20 divs 0-19 and go in order so that they can go in a card formation everytime 
+              // will let the divs change with everyone going in order so now i have to make 20 divs 0-19 and go in order so that they can go in a card formation everytime
               const $testDiv = $('<div>').attr('id', `${$idNames}`)
               $ricksanchez.append($testDiv)
-              const $testP = $('#test0 p')
-              
-              //////////////////////////////////////////////////// 
+              // const $testP = $('p')// wasnt targeting all 20 characters for some reason might have to take out if i cant fix it// maybe changing this to 'test'+[i] also and then adding classes to this specifically
+
+              ////////////////////////////////////////////////////
               const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
               $testDiv.append($imagesTest)
-              $imagesTest.attr('id', `img${$idNames}`)
+              $imagesTest.addClass(`img${$idNames}`)
               ////////////////////////////////////////////////////////////////////////////////////
               //names for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $characters = $('<p>').text("Name: " + characters.results[i].name)
               $testDiv.append($characters)
-              $characters.attr('id', `p${$idNames}`)
+              $characters.addClass(`p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //genders for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $gender = $('<p>').text("Gender: " + characters.results[i].gender)
               $testDiv.append($gender)
-              $gender.attr('id', `p${$idNames}`)
+              $gender.addClass(`p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //locations for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $location = $('<p>').text("Location: " + characters.results[i].location.name)
               $testDiv.append($location)
-              $location.attr('id', `p${$idNames}`)
+              $location.addClass(`p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //species for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $species = $('<p>').text("Species: " + characters.results[i].species)
               $testDiv.append($species)
-              $species.attr('id', `p${$idNames}`)
+              $species.addClass(`p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //status for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $status = $('<p>').text("Status: " + characters.results[i].status)
               $testDiv.append($status)
-              $status.attr('id', `p${$idNames}`)
-              ///////////////////////////////////////////////////////////////////////////////////
-              //making a clickable  link that leads to all of their info have to make it relevant now though dont want it in there for now 
-              ///////////////////////////////////////////////////////////////////////////////////
-              // const $type = $(`<a href="${characters.results[i].url}"target="_blank"></a>`).text(characters.results[i].url)
-              // $testDiv.append($type)
-              // $status.attr('id', `${$idNames}`)
-              ///////////////////////////////////////////////////////////////////////////////////
-              //imagines for everyone displaying
-              ///////////////////////////////////////////////////////////////////////////////////
-              // const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
-              // $testDiv.append($imagesTest)
-              // $imagesTest.attr('id', `${$idNames}img`)
+              $status.addClass(`p${$idNames}`)
 
-              const $openRicky = (event) => {
-                $testP.css('display', 'block')
-              }
-              $testDiv.on('click', $openRicky)// trying to make modal is not working as of now
-              const $closeRicky = (event) => {
-                $testP.css('display', 'none')
-              }
-              $testDiv.on('dblclick', $closeRicky)
+
+              ///////////////////////////////////////////////////////////////////////////////////
+              //clickable events
+              ///////////////////////////////////////////////////////////////////////////////////
+
+              // const $openRicky = (event) => {
+              //   $testP.css('display', 'block')
+              // }
+              // $ricksanchez.on('click', $openRicky)// trying to make modal is not working as of now
+              // const $closeRicky = (event) => {
+              //   $testP.css('display', 'none')
+              //
+              // }
+              // $ricksanchez.on('dblclick', $closeRicky)
+              // console.log($testP);
+
+              ///////////////////////////////////////////////////////////////////////////////////
+              //fixed above stuff with this
+              ///////////////////////////////////////////////////////////////////////////////////
+              $($imagesTest).hover( (event) => {
+                $characters.toggleClass('images')
+                $gender.toggle()
+                $location.toggle()
+                $species.toggle()
+                $status.toggle()
+              })
+
+              // $($imagesTest).hover( (event) => {
+              //   $characters.removeClass('ptest0')
+              // })
+
+
+
+              // const $open = $('.imgtest0')
+              // const $container = $('.ptest0')
+              // const $close =
+              //
+              // $open.on('click', () => {
+              //   $container.addClass('show')
+              // })
+              // console.log($container);
+              // $close.on('click', () => {
+              //   $container.removeClass('show')
+              // })
 
               // console.log(characters);
             }
@@ -91,8 +120,9 @@ const formTest =
 
         },(error) => {
           alert('your not that good at spelling huh please try again ')
-          // when you get an error because of a misspelled name it will populate an alert instead of nothing 
+          // when you get an error because of a misspelled name it will populate an alert instead of nothing
           console.log(`${error.statusText.toUpperCase()}:bad request`);
+          // will log the error
 
         })
       })
@@ -322,4 +352,3 @@ const formTest =
   // $ricksanchez.append($status)
   // const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
   // $ricksanchez.append($imagesTest)
- 
