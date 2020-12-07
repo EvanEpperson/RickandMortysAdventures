@@ -24,17 +24,14 @@ const formTest =
 
             for(let i = 0; i < characters.results.length; i++){
               const $idNames = 'test'+[i]
-              const $openRick = ('.rickSanchez')
               // will let the divs change with everyone going in order so now i have to make 20 divs 0-19 and go in order so that they can go in a card formation everytime 
               const $testDiv = $('<div>').attr('id', `${$idNames}`)
               $ricksanchez.append($testDiv)
               const $testP = $('#test0 p')
-              const $openRicky = () => {
-                $testP.css('display', 'block')
-              }
-              $ricksanchez.on('click', $testP)// trying to make modal is not working as of now 
-
-              ////////////////////////////////////////////////////
+              $testDiv.on('click', (event) => {
+                $testP.toggle()
+              })
+              //////////////////////////////////////////////////// 
               const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
               $testDiv.append($imagesTest)
               $imagesTest.attr('id', `img${$idNames}`)
@@ -43,31 +40,31 @@ const formTest =
               ///////////////////////////////////////////////////////////////////////////////////
               const $characters = $('<p>').text("Name: " + characters.results[i].name)
               $testDiv.append($characters)
-              $characters.attr('id', `${$idNames}`)
+              $characters.attr('id', `p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //genders for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $gender = $('<p>').text("Gender: " + characters.results[i].gender)
               $testDiv.append($gender)
-              $gender.attr('id', `${$idNames}`)
+              $gender.attr('id', `p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //locations for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $location = $('<p>').text("Location: " + characters.results[i].location.name)
               $testDiv.append($location)
-              $location.attr('id', `${$idNames}`)
+              $location.attr('id', `p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //species for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $species = $('<p>').text("Species: " + characters.results[i].species)
               $testDiv.append($species)
-              $species.attr('id', `${$idNames}`)
+              $species.attr('id', `p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //status for everyone displaying
               ///////////////////////////////////////////////////////////////////////////////////
               const $status = $('<p>').text("Status: " + characters.results[i].status)
               $testDiv.append($status)
-              $status.attr('id', `${$idNames}`)
+              $status.attr('id', `p${$idNames}`)
               ///////////////////////////////////////////////////////////////////////////////////
               //making a clickable  link that leads to all of their info have to make it relevant now though dont want it in there for now 
               ///////////////////////////////////////////////////////////////////////////////////
