@@ -28,9 +28,7 @@ const formTest =
               const $testDiv = $('<div>').attr('id', `${$idNames}`)
               $ricksanchez.append($testDiv)
               const $testP = $('#test0 p')
-              $testDiv.on('click', (event) => {
-                $testP.toggle()
-              })
+              
               //////////////////////////////////////////////////// 
               const $imagesTest = $(`<img src = ${characters.results[i].image} alt='image'/>`)
               $testDiv.append($imagesTest)
@@ -78,7 +76,14 @@ const formTest =
               // $testDiv.append($imagesTest)
               // $imagesTest.attr('id', `${$idNames}img`)
 
-
+              const $openRicky = (event) => {
+                $testP.css('display', 'block')
+              }
+              $testDiv.on('click', $openRicky)// trying to make modal is not working as of now
+              const $closeRicky = (event) => {
+                $testP.css('display', 'none')
+              }
+              $testDiv.on('dblclick', $closeRicky)
 
               // console.log(characters);
             }
