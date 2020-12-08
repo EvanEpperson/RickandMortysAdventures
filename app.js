@@ -89,32 +89,21 @@ const formTest =
               //fixed above stuff with this
               ///////////////////////////////////////////////////////////////////////////////////
               $($imagesTest).hover( (event) => {
-                $characters.toggleClass('images')
+                $characters.toggle()
                 $gender.toggle()
                 $location.toggle()
                 $species.toggle()
                 $status.toggle()
+
               })
 
-              // $($imagesTest).hover( (event) => {
-              //   $characters.removeClass('ptest0')
-              // })
-
-
-
-              // const $open = $('.imgtest0')
-              // const $container = $('.ptest0')
-              // const $close =
-              //
-              // $open.on('click', () => {
-              //   $container.addClass('show')
-              // })
-              // console.log($container);
-              // $close.on('click', () => {
-              //   $container.removeClass('show')
-              // })
-
-              // console.log(characters);
+              $($imagesTest).hover( (event) => {
+                $characters.addClass('animation')
+                $gender.addClass('animation')
+                $location.addClass('animation')
+                $species.addClass('animation')
+                $status.addClass('animation')
+              })
             }
 
 

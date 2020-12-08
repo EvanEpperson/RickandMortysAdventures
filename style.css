@@ -7,7 +7,7 @@ body{
 }
 #bar{
   width: 500px;
-  height: 50px;
+  font-size: 30px;
 }
 #TestName{
   height: 55px;
@@ -39,46 +39,55 @@ body{
 
 p{
   display: none;
+  background: blue;
 }
 
 
 
-/* .animation p{
-  display: none;
-  animation-name: fadein;
-  margin: 0px;
-  transform: scale(1);
-  animation-delay: 2s;
-} */
+
 
  #test0:hover , #test1:hover , #test2:hover , #test3:hover , #test4:hover , #test5:hover , #test6:hover , #test7:hover , #test8:hover , #test9:hover , #test10:hover , #test11:hover , #test12:hover , #test13:hover {
-  transition: transform .4s;
+  color: white;
+  background: ;
+  /* opacity: 0.9; */
+  transform: scale(1.05);
+  animation-name: fadein;
+  animation-duration: .4s;
+}
+#test14:hover , #test15:hover , #test16:hover , #test17:hover , #test18:hover , #test19:hover{
   color: white;
   background: #3C3E44;
   /* opacity: 0.9; */
   transform: scale(1.05);
-  animation-name: testing;
-  animation-duration: 4s;
-}
-#test14:hover , #test15:hover , #test16:hover , #test17:hover , #test18:hover , #test19:hover{
-
+  animation-name: fadein;
+  animation-duration: .4s;
 }
 .images{
   opacity: 3.0;
   transform: scale(1);
-
 }
 img{
   opacity: none;
   margin: 10px;
 }
 
-@@keyframes testing {
-  0%{display: none; opacity: 0;}
-  1%{display: block; opacity: 0;}
-  100%{display: block;  opacity: 1;}
+.animation {
+  animation-name: fadein;
+  margin: 5px;
+  transform: scale(1.5);
+  /* animation-delay: 0s;
+  animation-duration: .5s; */
+  animation-timing-function: ease-in;
 
 }
+
+@keyframes fadein {
+  0%{display: none; opacity: 0; }
+  50%{display: block; opacity: 0;}
+  100%{display: block; opacity: 1;}
+
+}
+
 
 /* img{
   display: flex;
