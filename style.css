@@ -6,20 +6,65 @@ body{
   background:
 }
 #bar{
+
+  color: white;
   width: 500px;
   font-size: 30px;
+  background: rgba(0,0,0,0.5);
 }
 #TestName{
   height: 55px;
+  background: white;
 }
 .rickSanchez{
+
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+/* .ptest0{
+  opacity: 0;
+  background: #fff;
+  border-radius: 5px;
+  width: 600px;
+  max-width: 100%;
+  background-color: rgba(0,0,0,0.1);
+  top: 0;
+  left: 0;
+  height: ;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:;
+  pointer-events: none;
 
 
+} */
+
+/* .ptest0 {
+  background: #fff;
+  border-radius: 5px;
+  width: 600px;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+} */
+/* .ptest0.show{
+  opacity: 1;
+  pointer-events: auto;
+} */
 p{
   position: relative;
   display: none;
@@ -30,7 +75,9 @@ p{
   bottom: 13px;
 }
 
+#test0{
 
+}
 
 
 
@@ -39,15 +86,16 @@ p{
   background: ;
   transform: scale(1.1);
   animation-name: fadein;
-  animation-duration: .5s;
+  animation-duration: 1s;
 
 
 }
 #test14:hover , #test15:hover , #test16:hover , #test17:hover , #test18:hover , #test19:hover{
   color: white;
-  transform: scale(1.05);
+  background: ;
+  transform: scale(1.1);
   animation-name: fadein;
-  animation-duration: .4s;
+  animation-duration: 1s;
 }
 .images{
   opacity: 3.0;
