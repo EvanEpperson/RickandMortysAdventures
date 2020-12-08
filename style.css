@@ -5,6 +5,11 @@ body{
   background-attachment: fixed;
   background:
 }
+@media (max-width: 600px){
+  body{
+    background-image: url(https://wallpapercave.com/wp/wp4559985.jpg)
+  }
+}
 #bar{
   color: white;
   width: 500px;
@@ -116,7 +121,6 @@ img{
 .imageAnimation{
   animation-name: inandout;
   animation-duration: 1s;
-  animation-fill-mode: forwards;
 }
 
 @keyframes fadein {
