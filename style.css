@@ -19,27 +19,15 @@ body{
   justify-content: space-around;
 }
 
-/* for the actual divs  */
-/* #test0:hover {
-  background: #d3d3d3;
-  width: auto;
-  height: auto;
-  opacity: 0.8
-  /* margin: 10px; */
-
-
-/* for the paragraph part of everything  */
-/* .ptest0{
-  position: static;
-  left: 340px;
-  bottom: 300px;
-  margin: 0px;
-} */
-
 
 p{
+  position: relative;
   display: none;
-  background: blue;
+  background: #3B3E43;
+  font-size: 10px;
+  width: 150px;
+  left: 90px;
+  bottom: 13px;
 }
 
 
@@ -49,15 +37,14 @@ p{
  #test0:hover , #test1:hover , #test2:hover , #test3:hover , #test4:hover , #test5:hover , #test6:hover , #test7:hover , #test8:hover , #test9:hover , #test10:hover , #test11:hover , #test12:hover , #test13:hover {
   color: white;
   background: ;
-  /* opacity: 0.9; */
-  transform: scale(1.05);
+  transform: scale(1.1);
   animation-name: fadein;
-  animation-duration: .4s;
+  animation-duration: .5s;
+
+
 }
 #test14:hover , #test15:hover , #test16:hover , #test17:hover , #test18:hover , #test19:hover{
   color: white;
-  background: #3C3E44;
-  /* opacity: 0.9; */
   transform: scale(1.05);
   animation-name: fadein;
   animation-duration: .4s;
@@ -69,29 +56,32 @@ p{
 img{
   opacity: none;
   margin: 10px;
+  border-radius: 50%
 }
 
 .animation {
   animation-name: fadein;
   margin: 5px;
   transform: scale(1.5);
-  /* animation-delay: 0s;
-  animation-duration: .5s; */
   animation-timing-function: ease-in;
+  animation-duration: 0.7s;
 
+}
+.imageAnimation{
+  animation-name: inandout;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fadein {
-  0%{display: none; opacity: 0; }
-  50%{display: block; opacity: 0;}
-  100%{display: block; opacity: 1;}
+  0%{display: none; opacity: 0; border-radius: 50%}
+  1%{display: block; opacity: 0; border-radius: 50%}
+  100%{display: block; opacity: 1; border-radius: 0%}
 
 }
 
-
-/* img{
-  display: flex;
-  flex-direction: row;
-  width: 300px;
-  height: 300px;
-} */
+@keyframes inandout {
+  0%{border-radius: 100%}
+  1%{border-radius: 90%}
+  100%{border-radius: 0%}
+}

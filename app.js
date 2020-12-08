@@ -104,7 +104,11 @@ const formTest =
                 $species.addClass('animation')
                 $status.addClass('animation')
               })
+              $($imagesTest).hover( (event) => {
+                $imagesTest.toggleClass('imageAnimation')
+              })
             }
+
 
 
         },(error) => {
