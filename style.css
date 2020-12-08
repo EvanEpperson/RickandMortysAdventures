@@ -6,14 +6,13 @@ body{
   background:
 }
 #bar{
-
   color: white;
   width: 500px;
   font-size: 30px;
   background: rgba(0,0,0,0.5);
 }
 #TestName{
-  height: 55px;
+  height: 50px;
   background: white;
 }
 .rickSanchez{
@@ -23,6 +22,7 @@ body{
   flex-wrap: wrap;
   justify-content: space-around;
 }
+/* practicing modal but everything just stacks ontop of each other so I cant use it  */
 /* .ptest0{
   opacity: 0;
   background: #fff;
@@ -33,11 +33,11 @@ body{
   top: 0;
   left: 0;
   height: ;
-  width: 100vw;
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position:;
+  position: ;
   pointer-events: none;
 
 
@@ -75,9 +75,7 @@ p{
   bottom: 13px;
 }
 
-#test0{
 
-}
 
 
 
