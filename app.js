@@ -99,6 +99,7 @@ const formTest =
 
               $($imagesTest).hover( (event) => {
                 $characters.addClass('animation')
+                $characters.addClass('audio')
                 $gender.addClass('animation')
                 $location.addClass('animation')
                 $species.addClass('animation')
